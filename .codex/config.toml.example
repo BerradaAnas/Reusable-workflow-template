@@ -1,0 +1,19 @@
+# Copy this file to .codex/config.toml inside your Salesforce project.
+# Replace {{DEV_ORG_ALIAS}} with your local Salesforce CLI org alias.
+
+[mcp_servers.salesforce_dx]
+command = "npx"
+args = [
+  "-y",
+  "@salesforce/mcp@latest",
+  "--orgs",
+  "{{DEV_ORG_ALIAS}}",
+  "--toolsets",
+  "orgs,metadata,testing,code-analysis",
+  "--tools",
+  "run_apex_test",
+  "--dynamic-tools"
+]
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+default_tools_approval_mode = "prompt"
